@@ -124,8 +124,9 @@ impl AuthoritySet {
 ///
 /// The bridge needs to know where to start its sync from, and this provides that initial context.
 #[derive(
-	Default, Encode, Decode, RuntimeDebug, PartialEq, Eq, Clone, TypeInfo, Serialize, Deserialize,
+	Default, Encode, Decode, RuntimeDebug, PartialEq, Eq, Clone, TypeInfo,
 )]
+#[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
 pub struct InitializationData<H: HeaderT> {
 	/// The header from which we should start syncing.
 	pub header: Box<H>,
