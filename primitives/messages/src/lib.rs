@@ -197,9 +197,8 @@ impl OperatingMode for MessagesOperatingMode {
 	PartialEq,
 	TypeInfo,
 	MaxEncodedLen,
-	Serialize,
-	Deserialize,
 )]
+#[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
 pub struct LaneId(H256);
 
 impl LaneId {
